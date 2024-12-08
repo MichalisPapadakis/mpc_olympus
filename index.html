@@ -153,74 +153,160 @@
   </section>
   <!-- End paper abstract -->
 
-<!-- Youtube video -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
+  <!-- Youtube video -->
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
 
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Overview</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- Youtube embed code here -->
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/term0jZLbjM?si=qHGxxYtTgs0TIEnN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <!-- Paper video. -->
+        <h2 class="title is-3">Video Overview</h2>
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            
+            <div class="publication-video">
+              <!-- Youtube embed code here -->
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/term0jZLbjM?si=qHGxxYtTgs0TIEnN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<!-- End youtube video -->
+  </section>
+  <!-- End youtube video -->
+
+    <!-- Control Image carousel -->
+    <section class="hero is-small is-light">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title is-3">Collision Modeling & Control Architecture</h2>
+          <div id="results-carousel" class="carousel results-carousel">
+           
+            <div class="item">
+              <!-- Your image here -->
+              <img src="static/Images/Control/ControlArchitecture.png" alt="Control architecture overview"/>
+              <h2 class="subtitle has-text-centered">
+                <br> 
+                <b>Control architecture overview</b>: The proposed controller has a hierarchical structure. 
+                The Body Planner calculates the torso’s trajectory to track a
+                reference orientation, while the Leg Planner determines the leg motions necessary to execute the reorientation maneuver.
+              </h2>
+            </div>
+  
+            <div class="item">
+              <!-- Your image here -->
+              <img src="static/Images/Control/BodyPlanner.png" alt="Body Planner overview"/>
+              <h2 class="subtitle has-text-centered">
+                <br> 
+                <b>Body Planner</b>: The Body Planner considers the torso as a rigid body with fixed inertia. 
+                It calculates the torso’s trajectory to track a reference orientation by considering the 
+                legs as torque-producing actuators.
+              </h2>
+            </div>
+  
+            <div class="item">
+              <!-- Your image here -->
+              <img src="static/Images/Control/LegPlanner.png" alt="Leg Planner overview"/>
+              <h2 class="subtitle has-text-centered">
+                <br> 
+                <b>Leg Planner</b>: The Leg Planner uses a nonlinear MPC to generate the motion required to track the 
+                torque computed by the Body Planer for one leg.
+              </h2>
+            </div>
+  
+            <div class="item">
+              <!-- Your image here -->
+              <img src="static/Images/Control/resetting_algo.jpg" alt="Resetting strategy"/>
+              <h2 class="subtitle has-text-centered">
+                <br> 
+                <b>Resetting Strategy</b>: 
+                When the leg reaches the boundary of the workspace, moving to a <i>resetting point</i>—where it can efficiently
+                resume tracking the reference torque— conflicts with the short-term objectives
+                of the MPC.            
+                In order to plan periodic trajectories online, 
+                the Leg Planner MPC is wrapped by a Finite State Machine that provides specific state references 
+                and penalty weights.
+              </h2>
+            </div>
+  
+            <div class="item">
+              <!-- Your image here -->
+              <img src="static/Images/Control/AllocationModuleOverview.png" alt="Allocation Module 1"/>
+              <h2 class="subtitle has-text-centered">
+                <br> 
+                <b>Allocation Module</b>: By leveraging the system symmetries, 
+                the torque tracking problem is solved for one leg (the primary leg), and then the 
+                optimal joint trajectories of that leg are mapped in the others, 
+                avoiding self-collisions in the process. 
+              </h2>
+            </div>
+  
+            <div class="item">
+              <!-- Your image here -->
+              <img src="static/Images/Control/BetterAllocation2.png" alt="Allocation Module 2"/>
+              <h2 class="subtitle has-text-centered">
+                <br> 
+                <b>Allocation Module</b>: The allocation couples the movement of the legs, and thus the controller operates in distinct modes for Roll, Pitch and Yaw. 
+              </h2>
+            </div>
+
+            <div class="item">
+              <!-- Your image here -->
+              <img src="static/Images/Control/Convexification.png" alt="Collision Modelling"/>
+              <h2 class="subtitle has-text-centered">
+                <br> 
+                <b>Collision Modelling</b>: The link geometries are decomposed into a union of smaller 
+                convex shapes, offering a good compromise between simplification and fidelity. 
+                This approach reduces collision checking and enables real-time simulation without 
+                restricting the range of motion of the legs.   
+              </h2>
+            </div>
+
+            
+
+          
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End image carousel -->
 
   <!-- Image carousel -->
-<section class="hero is-small is-light">
+<section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Research Highlights</h2>
+      <h2 class="title is-3">Results</h2>
       <div id="results-carousel" class="carousel results-carousel">
        <div class="item">
         <!-- Your image here -->
         <img src="static/Images/SingleAxisExperiment_v2.jpg" alt="Single axis simulation results"/>
         <h2 class="subtitle has-text-centered">
-          Simulation results from tracking 90 degree turns in roll, pitch and yaw. 
-        </h2>
+          <br> 
+          <b>Simulation results from tracking 90 degree turns in roll, pitch and yaw.</b> 
       </div>
       <div class="item">
         <!-- Your image here -->
         <img src="static/Images/AblationStudy_v2.jpg" alt="Mass ablation study"/>
         <h2 class="subtitle has-text-centered">
-          Mass ablation study results. The influence of increasing the paw or torso mass is investigated. 
+          <br> 
+          <b>Mass ablation study results.</b> The influence of increasing the paw or torso mass is investigated. 
           The controller managed to stabilize the orientation in all cases, showcasing its robustness.
         </h2>
       </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/Images/setup2.png" alt="Experimental setup" />
-        <h2 class="subtitle has-text-centered">
-         The experimental setup.  The quadruped is placed on a testbed that allows rotation on a single axis, which is parallel to gravity to minimize its effect on the torso's rotation. 
-       </h2>
-     </div>
+
      <div class="item">
       <!-- Your image here -->
       <img src="static/Images/RollExperiment_v2.jpg" alt="roll experimental results"/>
       <h2 class="subtitle has-text-centered">
-        Roll experimental results.
+        <br> 
+        <b>Roll experimental results.</b> 
       </h2>
     </div>
     <div class="item">
       <!-- Your image here -->
       <img src="static/Images/YawExperiment_v2.jpg" alt="yaw experimental results"/>
       <h2 class="subtitle has-text-centered">
-        Yaw experimental results.
-      </h2>
-    </div>
-    <div class="item">
-      <!-- Your image here -->
-      <img src="static/Images/CollisionProcess_for_overleaf.png" alt="Collision geometry convexification process"/>
-      <h2 class="subtitle has-text-centered">
-        Convexification process of collision geometry to achieve accurate and efficient collision handling.
+        <br> 
+        <b>Yaw experimental results.</b> 
       </h2>
     </div>
   </div>
@@ -229,8 +315,9 @@
 </section>
 <!-- End image carousel -->
 
+
 <!-- Video carousel -->
-<section class="hero is-small">
+<section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
       <h2 class="title is-3">Experiments</h2>
@@ -278,7 +365,7 @@
   </section>
 
 
-  <footer class="footer">
+  <footer class="footer is-light">
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-8">
