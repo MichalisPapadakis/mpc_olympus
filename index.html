@@ -175,11 +175,19 @@
   <!-- End youtube video -->
 
     <!-- Control Image carousel -->
+    <style>
+      #control-carousel .item img {
+        height: 700px; /* Set the desired height */
+        width: auto;   /* Automatically adjust width to maintain aspect ratio */
+        object-fit: contain; /* Ensures the image fits within the dimensions gracefully */
+      }
+    </style>
+
     <section class="hero is-small is-light">
       <div class="hero-body">
         <div class="container">
           <h2 class="title is-3">Collision Modeling & Control Architecture</h2>
-          <div id="results-carousel" class="carousel results-carousel">
+          <div id="control-carousel" class="carousel results-carousel">
            
             <div class="item">
               <!-- Your image here -->
@@ -271,6 +279,15 @@
     <!-- End image carousel -->
 
   <!-- Image carousel -->
+  <style>
+    #results-carousel .item img {
+      height: 700px; /* Set the desired height */
+      width: auto;   /* Automatically adjust width to maintain aspect ratio */
+      object-fit: contain; /* Ensures the image fits within the dimensions gracefully */
+    }
+  </style>
+
+
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
@@ -321,7 +338,7 @@
   <div class="hero-body">
     <div class="container">
       <h2 class="title is-3">Experiments</h2>
-      <div id="results-carousel" class="carousel results-carousel">
+      <div id="video-carousel" class="carousel results-carousel">
         <div class="item item-video1">
           <video poster="" id="video1" autoplay controls muted loop height="100%">
             <!-- Your video file here -->
